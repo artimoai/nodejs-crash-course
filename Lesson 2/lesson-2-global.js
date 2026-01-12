@@ -26,21 +26,26 @@ We can use it to provide more detailed explanations.
 console.log(global); // Output all the properties and methods of the global object
 
 // Using `setTimeout` (a method of the global object)
+/*
+    The setTimeout function schedules a specific piece of code or a function to execute 
+    once after a designated delay, measured in milliseconds.
+*/
+
 // Schedule a message to be displayed after 500 milliseconds
 global.setTimeout(() => {
   console.log('This message appears after 500ms');
 }, 500);
 
-// The `global` object is implied, so you can often omit it
+// The `global` object is implied, so you can often omit it.
 setTimeout(() => {
   console.log('This message appears after 3 seconds');
 }, 3000);
 
 // Create a simple timer using `setInterval`
 /*  
-    setInterval then takes care of calling your function automatically at the specified intervals.
+    setInterval calls your function repeatedly after a specified length of time.
     It's like setting an alarm that goes off repeatedly, triggering your code each time.
-    In this example, the timer ticks every 1000ms
+    In this example, the timer ticks every 1000ms (1s)
 */
 let seconds = 0;
 const timer = setInterval(() => {
