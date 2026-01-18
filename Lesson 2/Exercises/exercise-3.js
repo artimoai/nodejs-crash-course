@@ -170,7 +170,7 @@ async function checkFolder() {
     console.log("Step 1: Creating 'logs' folder...");
     await fs.mkdir(folderPath2, { recursive: true });
   } else {
-    console.log('Step 1: Folder already exists.');
+    console.log("Step 1: Folder 'logs' already exists.");
   }
 }
 
