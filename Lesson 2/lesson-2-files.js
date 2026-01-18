@@ -180,13 +180,50 @@ if (!fs.existsSync('./Lesson 2/assets')) {
   });
 }
 
-const path = require('path');
+// Create Folders Recursive
+const fs = require('fs').promises;
+
+// Creates folder; {recursive: true} prevents errors if parent folders are
+// missing or if the target directory already exists (idempotent).
+async function createFoldersRecursive() {
+  await fs.mkdir('./Lesson 2/assets', { recursive: true });
+
+  // Check if a path exists before acting (Modern Promise-based approach)
+  // Note: fs.access throws an error if the file/folder does NOT exist.
+  try {
+    await fs.access('./Lesson 2/assets');
+    console.log('Directory exists');
+  } catch {
+    console.log('Directory does not exist');
+  }
+}
+createFoldersRecursive();
+
+// Read Folders Contents
+const fs = require('fs').promises;
+
+// Returns an array of strings representing the names of files/folders.
+async function readMyDirectory() {
+  const files = await fs.readdir('./Lesson 2/docs');
+  console.log(files);
+}
+readMyDirectory();
+
+// Returns an array of Dirent objects and provides metadata without extra calls.
+// Useful for filtering items (e.g., distinguishing files from directories).
+async function readMyDirectoryWithTypes() {
+  const results = await fs.readdir('./Lesson 2/docs', { withFileTypes: true });
+  console.log(results);
+}
+readMyDirectoryWithTypes();
 
 /*
-COMPLETE PATH MODULE OPERATIONS
-The path module provides utilities for working with file and directory paths.
-It ensures cross-platform compatibility (Windows vs. POSIX/Linux).
+  COMPLETE PATH MODULE OPERATIONS
+  The path module provides utilities for working with file and directory paths.
+  It ensures cross-platform compatibility (Windows vs. POSIX/Linux).
 */
+
+const path = require('path');
 
 // --- Extraction ---
 
