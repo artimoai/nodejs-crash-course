@@ -16,7 +16,10 @@ const fs = require('fs');
 
 // createReadStream: Opens a stream to read data from a source file.
 // The 'encoding' option converts the Buffer chunks into readable strings.
-const readStream = fs.createReadStream('./Lesson 2/docs/blog1.txt', { encoding: 'utf8', highWaterMark: 64 });
+const readStream = fs.createReadStream('./Lesson 2/docs/blog1.txt', {
+  encoding: 'utf8',
+  highWaterMark: 64,
+});
 
 // createWriteStream: Opens a stream to write data to a destination file.
 const writeStream = fs.createWriteStream('./Lesson 2/docs/blog4.txt');
